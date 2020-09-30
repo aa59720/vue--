@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{ msg }}{{ bb.a }}</h1>
+		<input type="text" v-model="msg">
+		<button type="button" v-on:click="handclick">on</button>
+		<button type="button" @click="handclick">@</button>
+	</div>
+</body>
+<script src="./simple-vue.js"></script>
+<script type="text/javascript">
+	const vm = new Vue({
+		el:"#app",
+		data: {
+			msg: "hello worle",
+			bb: {
+				a:1
+			}
+		},
+		methods: {
+			handclick() {
+				console.log(this)
+				this.msg = new Date().getTime()
+			}
+		}
+	})
+	vm.msg= 'simple';
+</script>
+</html>
